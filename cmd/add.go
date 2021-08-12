@@ -19,7 +19,7 @@ var addCmd = cobra.Command{
 		todoItem := strings.Join(strArgs, " ")
 		
 		// print out the todo back to the user.
-		fmt.Printf("added \"%s\" to your task list\n", todoItem)
+		fmt.Printf("added %s to your task list", todoItem)
 	},
 }
 
