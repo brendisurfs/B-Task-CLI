@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"github.com/brendisurfs/go-cli/cmd"
+)
 
 func main() {
-	fmt.Println("nice")
 
+	// runs our root command if no other args are passed into it.
+	cmd.RootCmd.Execute()
 }
