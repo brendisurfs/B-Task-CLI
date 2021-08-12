@@ -17,7 +17,9 @@ var addCmd = cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		strArgs = append(strArgs, args...)
 		todoItem := strings.Join(strArgs, " ")
-		fmt.Println(todoItem)
+		
+		// print out the todo back to the user.
+		fmt.Printf("added \"%s\" to your task list\n", todoItem)
 	},
 }
 
