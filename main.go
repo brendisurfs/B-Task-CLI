@@ -5,7 +5,6 @@ import (
 )
 
 func main() {
-
 	// runs our root command if no other args are passed into it.
 	cmd.RootCmd.Execute()
 }

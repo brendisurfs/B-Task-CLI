@@ -4,8 +4,7 @@ import "github.com/spf13/cobra"
 
 var RootCmd = &cobra.Command{
 	Use: "cli-task", 
-	Short: "a todo list bc haha funny", 
+	Short: "a lightweight CLI todo list", 
 	// dont need a long.
 	// no run
-	
 }

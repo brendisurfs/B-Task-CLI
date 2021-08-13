@@ -14,7 +14,6 @@ var doCmd = &cobra.Command {
 
 	Run: func(cmd *cobra.Command, args []string) {
 		var ids []int 
-
 		for _, arg := range args {
 			id, err := strconv.Atoi(arg)
 			if err != nil {
