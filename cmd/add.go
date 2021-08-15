@@ -5,6 +5,7 @@ import (
 	"log"
 	"strings"
 
+	"github.com/TwinProduction/go-color"
 	"github.com/brendisurfs/b-task/db"
 	"github.com/spf13/cobra"
 )
@@ -22,11 +23,11 @@ var addCmd = cobra.Command{
 		// db methods
 		_, err := db.CreateTask(task)
 		if err != nil {
-			log.Fatal("task creation failed! damn. : -> ", err.Error())
+			log.Fatal(color.Red+"task creation failed! damn. : -> "+color.Reset, err.Error())
 			return
 		}
 		// print out the todo back to the user.
-		fmt.Printf("added \"%s\" to your task list\n", task)
+		fmt.Printf(color.Green+"added \"%s\" to your task list\n"+color.Reset, task)
 	},
 }
 
