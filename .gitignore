@@ -3,3 +3,9 @@ pkg
 pkg/windows
 pkg/macos
 pkg/linux
+
+# installers
+installers
+installers/macos
+installers/linux
+installers/windows
