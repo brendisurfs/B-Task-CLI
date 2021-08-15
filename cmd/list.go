@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/brendisurfs/go-cli/db"
+	"github.com/brendisurfs/b-task/db"
 	"github.com/spf13/cobra"
 )
 

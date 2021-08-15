@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/brendisurfs/go-cli/cmd"
-	"github.com/brendisurfs/go-cli/db"
+	"github.com/brendisurfs/b-task/cmd"
+	"github.com/brendisurfs/b-task/db"
 	homedir "github.com/mitchellh/go-homedir"
 )
 
@@ -18,7 +18,6 @@ func main() {
 	}
 	dbPath := filepath.Join(home, "tasks.db")
 	must(db.Init(dbPath))
-	fmt.Println("db for tasks was created!")
 	// Execute app
 	must(cmd.RootCmd.Execute())
 }
