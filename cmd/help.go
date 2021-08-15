@@ -6,13 +6,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
-
-var helpCmd = &cobra.Command {
-	Use: "help",
+var helpCmd = &cobra.Command{
+	Use:   "help",
 	Short: "help: get help with this todo list.",
 
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("heeeeeeeeeeelllllp")
+		fmt.Println("help time")
 	},
 }
 
