@@ -12,6 +12,7 @@ import (
 var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "list out your todos",
+	Long:  "\n Using this command will simply list all the tasks you still have on your todo list.",
 
 	Run: func(cmd *cobra.Command, args []string) {
 		tasks, err := db.GetAllTasks()

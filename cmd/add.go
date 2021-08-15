@@ -15,6 +15,7 @@ var strArgs []string
 var addCmd = cobra.Command{
 	Use:   "add",
 	Short: "Adds a task to your task list",
+	Long:  "\n To add a task, simply use: " + color.Blue + "b-task add [whatever you want here]. " + color.Reset + "The task doesn't need quotes, but can be written in quotes.",
 
 	Run: func(cmd *cobra.Command, args []string) {
 		strArgs = append(strArgs, args...)

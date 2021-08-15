@@ -12,7 +12,8 @@ import (
 
 var doCmd = &cobra.Command{
 	Use:   "do",
-	Short: "Marks a task as complete/doing!",
+	Short: "Marks a task as completed",
+	Long:  "\n Using the number of the task, use" + color.Blue + " b-task do [number] " + color.Reset + "to complete that task.\n If the id doesn't exist, it will tell you.",
 
 	Run: func(cmd *cobra.Command, args []string) {
 
