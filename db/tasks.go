@@ -1,6 +1,7 @@
 package db
 
 import (
+	"encoding/binary"
 	"time"
 
 	bolt "go.etcd.io/bbolt"
@@ -35,4 +36,34 @@ func Init(dbPath string) error {
 		_, err := tx.CreateBucketIfNotExists(taskBucket)
 		return err
 	})
+}
+
+// CreateTask returns a key and an error.
+func CreateTask(task string) (int, error) {
+	var id int
+	err := db.Update(func(tx *bolt.Tx) error {
+		// b for bucket
+		b := tx.Bucket(taskBucket)
+		// only two reasons that an error occur and are dev reliant, we arent catching it.
+		id64, _ := b.NextSequence()
+		id = int(id64)
+		key := itob(int(id64))
+		return b.Put(key, []byte(task))
+	})
+	if err != nil {
+		return -1, err
+	}
+	return id, nil
+}
+
+// Converting integer to Byte
+// using Big Endian
+func itob(v int) []byte {
+	b := make([]byte, 8)
+	binary.BigEndian.PutUint64(b, uint64(v))
+	return b
+}
+
+func btoi(b []byte) int {
+	return int(binary.BigEndian.Uint64(b))
 }
