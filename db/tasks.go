@@ -56,13 +56,14 @@ func CreateTask(task string) (int, error) {
 	return id, nil
 }
 
-func AllTasks() ([]Task, error) {
+// GetAllTasks
+func GetAllTasks() ([]Task, error) {
 	var tasks []Task
 
 	err := db.View(func(tx *bolt.Tx) error {
 		b := tx.Bucket(taskBucket)
 
-		// we can continually call next.
+		// we can continually call next, similar to linked list.
 		c := b.Cursor()
 		for k, v := c.First(); k != nil; k, v = c.Next() {
 			tasks = append(tasks, Task{
@@ -70,9 +71,20 @@ func AllTasks() ([]Task, error) {
 				Value: string(v),
 			})
 		}
+		return nil
 	})
-
+	if err != nil {
+		return nil, err
+	}
 	return tasks, nil
+}
+
+// DeleteTask
+func DeleteTask(key int) error {
+	return db.Update(func(tx *bolt.Tx) error {
+		b := tx.Bucket(taskBucket)
+		return b.Delete(itob(key))
+	})
 }
 
 // ===================================================================================>
