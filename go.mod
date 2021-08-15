@@ -1,5 +1,10 @@
-module github.com/brendisurfs/go-cli
+module github.com/brendisurfs/b-task
 
 go 1.16
 
-require github.com/spf13/cobra v1.2.1
+require (
+	github.com/TwinProduction/go-color v1.0.0 // indirect
+	github.com/mitchellh/go-homedir v1.1.0
+	github.com/spf13/cobra v1.2.1
+	go.etcd.io/bbolt v1.3.6
+)

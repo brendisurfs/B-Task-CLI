@@ -1,0 +1,5 @@
+.vscode
+pkg
+pkg/windows
+pkg/macos
+pkg/linux
