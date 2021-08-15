@@ -32,7 +32,7 @@ var doCmd = &cobra.Command{
 		}
 		for _, id := range ids {
 			if id <= 0 || id > len(tasks) {
-				fmt.Println("invalid task number: ", id)
+				fmt.Println("invalid task number:", id)
 				continue
 			}
 			task := tasks[id-1]
@@ -40,11 +40,9 @@ var doCmd = &cobra.Command{
 			if err != nil {
 				fmt.Printf("failed to mark \"%d\" as complete. Error: %s\n", id, err)
 			} else {
-				fmt.Printf("Marked \"%d\" as complete.", id)
+				fmt.Printf("Marked Item \"%d\" -> complete.\n", id)
 			}
 		}
-
-		fmt.Println(ids)
 	},
 }
 
